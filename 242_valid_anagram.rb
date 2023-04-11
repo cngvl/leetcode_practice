@@ -7,8 +7,7 @@ def is_anagram(s, t)
   # return boolean value
 end
 
-
-s = "anagram"
-t = "nagaram"
+s = 'anagram'
+t = 'nagaram'
 
 p is_anagram(s, t)
