@@ -35,35 +35,36 @@ list1.next.val = 2
 
 
 def merge_two_lists(list1, list2)
-    result = ListNode.new
-    current = result
-    # I don't get the point of checking if the lists are nil
-    return list2 if list1 == nil
-    return list1 if list2 == nil
-    # Run this if both of the lists 'exist'
-    # This compares each linked list with eachother by comparing individual nodes
-    while list1 != nil && list2 != nil
-        # Where does the #val come from?
-        if list1.val < list2.val
-            current.next = list1
-            list1 = list1.next
-        else
-            current.next = list2
-            list2 = list2.next
-        end
-        current = current.next;
+  result = ListNode.new
+  current = result
+  # Check if both lists have a linkedlist, if one doesn't exist, return the other
+  return list2 if list1 == nil
+  return list1 if list2 == nil
+  # Run this if both of the lists 'exist'
+  # This compares each linked list with eachother by comparing individual nodes
+  while list1 != nil && list2 != nil
+    # Where does the #val come from?
+    if list1.val < list2.val
+      current.next = list1
+      list1 = list1.next
+    else
+      current.next = list2
+      list2 = list2.next
     end
-    # This catches any nodes 'left over'
-    if list1 != nil
-        current.next = list1
-        list1 = list1.next
-    end
-    if list2 != nil
-        current.next = list2
-        list2 = list2.next
-    end
-    #
-    return result.next
+    current = current.next;
+  end
+  # This catches any nodes 'left over'
+  if list1 != nil
+    current.next = list1
+    list1 = list1.next
+  end
+
+  if list2 != nil
+    current.next = list2
+    list2 = list2.next
+  end
+
+  result.next
 end
 
 merge_two_lists(list1, list2)
