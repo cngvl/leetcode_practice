@@ -17,21 +17,26 @@
 #   test_sub.join == s
 # end
 
+# My first solution (didn’t pass all tests)
+# def is_subsequence(s, t)
+#   test_sub = []
+#   t.chars.each do |char|
+#     test_sub << char if s.include?(char)
+#   end
+#   test_sub.join.include?(s)
+#   test_sub.join == s
+# end
 
+# Solutions used a two-pointer method (new solution using references)
 def is_subsequence(s, t)
   point1 = 0
   point2 = 0
 
   t.chars.each do
-    if s[point1] == t[point2]
-      point1 += 1
-    end
+    point1 += 1 if s[point1] == t[point2]
     point2 += 1
   end
   point1 == s.length
 end
 
-s = "ab"
-t = "baab"
-
-p is_subsequence(s, t)
+# - reading while using two hands to point at comparison string and reading text analogy
