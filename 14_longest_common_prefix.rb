@@ -14,16 +14,23 @@ def longest_common_prefix(strs)
       small_stack << str[letter_pos]
     end
     letter_pos += 1
-    big_stack << small_stack if small_stack.uniq.length == 1
+    if small_stack.uniq.length == 1
+      big_stack << small_stack.uniq
+    else
+      break
+    end
     # byebug
   end
-  p big_stack.uniq.join('')
+  p big_stack.join('')
 end
 
-strs = ["flower","flow","flight"]
+# strs = ["flower","flow","flight"]
 # >>> "fl"
 
 # strs = ["dog","racecar","car"]
 # >>> ""
+
+strs = ["aa","aa"]
+# >>> "aa"
 
 longest_common_prefix(strs)
