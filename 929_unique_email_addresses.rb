@@ -3,14 +3,12 @@ require 'pry-byebug'
 # @param {String[]} emails
 # @return {Integer}
 
-
 # emails = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]
 # >>> 2
 # Explanation: "testemail@leetcode.com" and "testemail@lee.tcode.com" actually receive mails.
 
 # "alice.z@leetcode.com" and "alicez@leetcode.com" will be sent to the same email address - no need for any transformations?
 # DO need transformations if using uniq
-
 
 
 def num_unique_emails(emails)
