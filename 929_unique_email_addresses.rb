@@ -35,21 +35,21 @@ def num_unique_emails(emails)
   end
 
   # p unique_emails
-  unique_emails.uniq.size
+  unique_emails.size
 
 end
 
 
 # chatGPT solution
 # def num_unique_emails(emails)
-  # unique_emails = {}
-  # emails.each do |email|
-  #   local, domain = email.split('@')
-  #   local.delete!('.')
-  #   local.sub!(/\+.*$/, '')
-  #   unique_emails["#{local}@#{domain}"] = true
-  # end
-  # return unique_emails.size
+#   unique_emails = {}
+#   emails.each do |email|
+#     local, domain = email.split('@')
+#     local.delete!('.')
+#     local.sub!(/\+.*$/, '')
+#     unique_emails["#{local}@#{domain}"] = true
+#   end
+#   return unique_emails.size
 # end
 
 
