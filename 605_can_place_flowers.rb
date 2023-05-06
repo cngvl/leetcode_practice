@@ -15,49 +15,68 @@ require 'pry-byebug'
 
 # 00000 > 10101
 
+# Dogshit solution 💩💩💩
+# def can_place_flowers(flowerbed, n)
+#   start_regex = /^0[^1]/
+#   end_regex = /00$/
+#   middle_regex = /000/
+#   additional_regex = /^0\b/
+#   no_of_changes = 0
+#   flowerbed_string = flowerbed.join
+#   n.times do
+
+#     # binding.pry
+#     if flowerbed_string.match?(start_regex)
+#       flowerbed_string.gsub!(start_regex, '10')
+#       no_of_changes += 1
+#     end
+
+#     if flowerbed_string.match?(additional_regex)
+#       flowerbed_string.gsub!(additional_regex, '1')
+#       no_of_changes += 1
+#     end
+
+#     if flowerbed_string.match?(end_regex)
+#       flowerbed_string.gsub!(end_regex, '01')
+#       no_of_changes += 1
+#     end
+
+#     if flowerbed_string.match?(middle_regex)
+#       flowerbed_string.sub!(middle_regex, '010')
+#       no_of_changes += 1
+#     end
+
+#     # binding.pry
+#     return true if no_of_changes >= n
+
+#   end
+
+#   # binding.pry
+#   # return true if flowerbed_string.match?(/^0$/)
+#   return true if !flowerbed_string.match?('11') && n <= no_of_changes
+#   return false if n > no_of_changes
+#   return false
+
+# end
+
 def can_place_flowers(flowerbed, n)
-  start_regex = /^0[^1]/
-  end_regex = /00$/
-  middle_regex = /000/
-  additional_regex = /^0\b/
-  no_of_changes = 0
-  flowerbed_string = flowerbed.join
-  n.times do
-
-    # binding.pry
-    if flowerbed_string.match?(start_regex)
-      flowerbed_string.gsub!(start_regex, '10')
-      no_of_changes += 1
-    end
-
-    if flowerbed_string.match?(additional_regex)
-      flowerbed_string.gsub!(additional_regex, '1')
-      no_of_changes += 1
-    end
-
-    if flowerbed_string.match?(end_regex)
-      flowerbed_string.gsub!(end_regex, '01')
-      no_of_changes += 1
-    end
-
-    if flowerbed_string.match?(middle_regex)
-      flowerbed_string.sub!(middle_regex, '010')
-      no_of_changes += 1
-    end
-
-    # binding.pry
-    return true if no_of_changes >= n
-
+  return true if n == 0
+  i = 0
+  while i < flowerbed.length
+      if flowerbed[i] == 1
+          i += 2
+      elsif flowerbed[i] == 0
+          if flowerbed[i+1] == 0 || i == flowerbed.size - 1
+              n -= 1
+              i += 2
+          elsif flowerbed[i+1] == 1
+              i += 3
+          end
+      end
+      return true if n == 0
   end
-
-  # binding.pry
-  # return true if flowerbed_string.match?(/^0$/)
-  return true if !flowerbed_string.match?('11') && n <= no_of_changes
-  return false if n > no_of_changes
   return false
-
 end
-
 
 flowerbed = [1,0,0,0,1]
 n = 1
