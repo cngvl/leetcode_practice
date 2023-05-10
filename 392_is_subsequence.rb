@@ -27,6 +27,8 @@
 #   test_sub.join == s
 # end
 
+# Test fails when there are duplicates - i.e. s = 'ab' and t = 'baab'
+
 # Solutions used a two-pointer method (new solution using references)
 def is_subsequence(s, t)
   point1 = 0

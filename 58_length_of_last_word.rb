@@ -1,8 +1,9 @@
 # @param {String} s
 # @return {Integer}
 def length_of_last_word(s)
-  s.split().last.size
+  s.split.last.size
 end
+# Kinda cheating so I think the intended method / logic behind the question is to use an iteration of the string in reverse order
 
 # Solution using two pointers
 # def length_of_last_word(s)

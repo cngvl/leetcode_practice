@@ -19,18 +19,17 @@ def longest_common_prefix(strs)
     else
       break
     end
-    # byebug
   end
-  p big_stack.join('')
+  big_stack.join('')
 end
 
-# strs = ["flower","flow","flight"]
+strs = ['flower', 'flow', 'flight']
 # >>> "fl"
 
 # strs = ["dog","racecar","car"]
 # >>> ""
 
-strs = ["aa","aa"]
+# strs = ["aa","aa"]
 # >>> "aa"
 
-longest_common_prefix(strs)
+p longest_common_prefix(strs)
