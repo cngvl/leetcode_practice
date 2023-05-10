@@ -1,6 +1,7 @@
 def pivotIndex(nums):
     # print('x')
-    # Can find the target sum value by the total / 2
+    # Can find the target sum value by the total / 2 - doesn't work for 2 1 -1?
+    # Will need to account for nums.length = 1
     # Run two loops, seperately?
         # One going left to right
         # Other going right to left
@@ -8,7 +9,6 @@ def pivotIndex(nums):
     # Once they hit the target value, find the index they stopped at
     # Compare the two, if they match return the match value
     # If not, return -1
-
 
 
 
