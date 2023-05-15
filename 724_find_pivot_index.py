@@ -43,7 +43,6 @@ def pivotIndex(nums):
     # 0 .. pointer
     # pointer .. -1
     position = 0
-    # can do a while condition - while position <= nums.length
     # for pointer in nums[0:3]:
         # print(pointer)
         # Everything to the left
@@ -73,6 +72,4 @@ def pivotIndex(nums):
         print('ONE POSITION LOOP DONE')
         print('*' * 20)
 
-# nums = [1,7,3,6,5,6]
-# nums = [0,1,2,3,4,5]
 pivotIndex(nums)

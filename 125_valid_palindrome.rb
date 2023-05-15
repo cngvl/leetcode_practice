@@ -12,7 +12,7 @@ end
 #       left = 0
 #       right =  len(s) -1
 #       #Initializing two pointer P1 and P2 point to the left-most side and the right-most
-#       while left <right:
+#       while left < right:
 #       #Moving two pointers in and compare two pointers if one case does not match then know that string is not a palindrom
 #           if s[left] != s[right]:
 #               return False

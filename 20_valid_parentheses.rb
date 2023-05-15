@@ -11,7 +11,6 @@ require 'pry-byebug'
   # else there was an error in the string
 # donezo
 
-
 def is_valid(s)
   stack = []
   s.each_char do |char|
@@ -40,23 +39,3 @@ end
 
 # Input: s = "(]"
 # Output: false
-
-# ******** Top solution ********
-# def is_valid(string)
-#   return true if string.empty?
-
-#   stack = []
-#   string.each_char do |character|
-#     case character
-#     when '(', '{', '['
-#       stack.push(character)
-#     when ')'
-#       return false if stack.pop() != '('
-#     when '}'
-#       return false if stack.pop() != '{'
-#     when ']'
-#       return false if stack.pop() != '['
-#     end
-#   end
-#   return stack.empty?
-# end
