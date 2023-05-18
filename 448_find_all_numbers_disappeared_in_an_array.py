@@ -32,6 +32,8 @@ def findDisappearedNumbers(nums):
         if i not in numDict:
             toReturn.append(i)
 
+    return toReturn
+
 
 
 nums = [4,3,2,7,8,2,3,1]
