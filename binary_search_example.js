@@ -12,7 +12,7 @@
           if ( array[guess] === targetValue ) {
               println(guessCounter);
               return guess;
-          } else if ( array[guess] < targetValue){
+          } else if ( array[guess] < targetValue ){
               min = guess + 1;
           } else {
               max = guess - 1;
