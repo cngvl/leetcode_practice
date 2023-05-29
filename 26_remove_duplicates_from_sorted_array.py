@@ -9,22 +9,30 @@
     # If if I do a two pointer that reads through every value and checks the whole list for that value it becomes an O(n2) time complex value
     # list(dict.fromkeys(nums))
 
+# def removeDuplicates(nums):
+#     # timesLooped = 0
+#     seenLetters = {}
+#     for number in nums:
+#         # timesLooped += 1
+#         # if number in seenLetters:
+#         if number not in seenLetters:
+#             print("Going into if loop")
+#             seenLetters[number] = 1
+#             # del nums[number]
+#         else:
+#             nums.remove(number)
+#             # print(f"{number} is found!")
+#             print("Going into else loop")
+
+
 def removeDuplicates(nums):
-    # print(nums)
-    # len(list(dict.fromkeys(nums)))
-    # timesLooped = 0
-    seenLetters = {}
-    for number in nums:
-        # timesLooped += 1
-        # if number in seenLetters:
-        if number in seenLetters:
-            print(f"{number} is found!")
-            # del nums[number]
-            nums.remove(number)
-        else:
-            seenLetters[number] = 1
+    L = 1
 
-
+    for R in range(1, len(nums)):
+        if nums[R] != nums[R - 1]:
+            nums[L] = nums[R]
+            L += 1
+    return L
 
 
 # nums = [1,1,2]
