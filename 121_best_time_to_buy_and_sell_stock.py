@@ -14,24 +14,16 @@ def maxProfit(prices):
     leftPointer = 0
     rightPointer = 1
     storedMax = 0
-    # for day in prices:
     while rightPointer < len(prices):
-        # print(day)
         tempMax = prices[rightPointer] - prices[leftPointer]
         if tempMax > storedMax:
             storedMax = tempMax
-            # rightPointer += 1
 
         if prices[rightPointer] < prices[leftPointer]:
             leftPointer = rightPointer
-            # rightPointer += 1
 
         rightPointer += 1
-        # print(prices[rightPointer])
-        # print(prices[leftPointer])
 
-        # rightPointer += 1
-        # leftPointer += 1
     return storedMax
 
 
