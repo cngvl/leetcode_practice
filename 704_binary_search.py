@@ -13,16 +13,9 @@ class Solution:
                 max = middle - 1
         return -1
 
-
-
-
-
-
 nums = [-1,0,3,5,9,12]
 target = 9
 # >>> 4
-
-
 
 # nums = [-1,0,3,5,9,12]
 # target = 2
