@@ -6,7 +6,6 @@
 # def reverseString(s):
 #     s.reverse()
 
-
 # Kind of cheated but I just used whatever tools were available to me
 # I assume they wanted some pointer going in the leftward direction (but this uses more mem?)
 
