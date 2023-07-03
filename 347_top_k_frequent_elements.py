@@ -28,7 +28,7 @@ class Solution:
 
         returnArray = []
         i = 0
-        while len(returnArray) < k:
+        while i < k:
             returnArray.append(sortedNumberHash[i][0])
             i += 1
 
