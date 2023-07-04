@@ -12,10 +12,6 @@
 
 class Solution:
     def topKFrequent(self, nums: list[int], k: int) -> list[int]:
-        # print(list, k)
-        # print(sorted(nums))
-        # print(nums.sort)
-        # nums.sort
         numberHash = {}
         for num in nums:
             if num not in numberHash:
@@ -24,7 +20,6 @@ class Solution:
                 numberHash[num] += 1
 
         sortedNumberHash = sorted(numberHash.items(), key=lambda x:x[1], reverse = True)
-        # print(sortedNumberHash)
 
         returnArray = []
         i = 0
