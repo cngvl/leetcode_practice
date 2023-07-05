@@ -4,6 +4,8 @@
     # The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
     # You must write an algorithm that runs in O(n) time and without using the division operation.
 
+# Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)
+
 # My notes:
     # O(n) times makes me think that I should run some sort of HashMap solution?
         # I initially thought that I would do something like
@@ -12,22 +14,23 @@
         # hashMap[2] = 134
     # Is there even a need to store the values in a hashmap?
 
+import numpy
+
 class Solution:
     def productExceptSelf(self, nums: list[int]) -> list[int]:
         # hashMap = {}
-        # answerArray = []
+        answerArray = []
+        # OriginalNums = nums[:]
 
-        baseNums = nums
         for pos in range(len(nums)):
-            print(nums[pos])
-            # baseNums.remove(pos)
+            # print(nums[pos])
+            baseNums = nums[:]
+            baseNums.pop(pos)
+            listProduct = numpy.prod(baseNums)
+            answerArray.append(listProduct)
             # del baseNums[pos]
 
-        # for num in nums:
-            # print(nums)
-            # baseNums = nums
-            # baseNums.remove(num)
-            # print(num)
+        return answerArray
 
 
 
