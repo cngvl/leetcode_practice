@@ -1,15 +1,12 @@
 class Solution:
     def validPalindrome(self, s: str) -> bool:
-        l = 0
-        r = len(s) - 1
-        # skippedChars = 0
+        l, r = 0, len(s) - 1
+        baseString = s[::]
 
         while l < r:
 
-            baseString = s[::]
             left_char = s[l]
             right_char = s[r]
-
 
             # string ignoring the LAST letter
             x = s[l:r]
@@ -30,9 +27,6 @@ class Solution:
 
             else:
                 return False
-
-        # if skippedChars > 1:
-        #     return False
 
         return True
 
