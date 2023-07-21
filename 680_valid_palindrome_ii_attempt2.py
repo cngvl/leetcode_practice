@@ -2,35 +2,37 @@ class Solution:
     def validPalindrome(self, s: str) -> bool:
         l = 0
         r = len(s) - 1
-        skippedChars = 0
+        # skippedChars = 0
 
         while l < r:
 
+            baseString = s[::]
             left_char = s[l]
             right_char = s[r]
 
-            x = s[l - 1:r]
-            string = s[::]
+
+            # string ignoring the LAST letter
+            x = s[l:r]
+
+            # string ignoring the FIRST letter
+            y = s[l+1:r+1]
+
+            # If the string already is a palindrome and doesn't need any deletions
+            if s[::] == s[::-1]:
+                return True
 
             if s[l] == s[r]:
                 l += 1
                 r -= 1
-            elif s[l] == s[r - 1]:
-                l += 1
-                r -= 2
-                skippedChars += 1
-            elif s[l + 1] == s[r]:
-                l += 2
-                r -= 1
-                skippedChars += 1
-            # elif x[::] == x[::-1]:
-            #     l += 2
-            #     r -= 2
+
+            elif x == x[::-1] or y == y[::-1]:
+                return True
+
             else:
                 return False
 
-        if skippedChars > 1:
-            return False
+        # if skippedChars > 1:
+        #     return False
 
         return True
 
@@ -55,10 +57,10 @@ class Solution:
 s = "lcupuufxoohdfpgjdmysgvhmvffcnqxjjxqncffvmhvgsymdjgpfdhooxfuupucul"
 # >>> true
 
-s = "deeee"
+# s = "deeee"
 # >>> true
 
-s = "eeccccbebaeeabebccceea"
+# s = "eeccccbebaeeabebccceea"
 # >>> false
 
 sol = Solution()
