@@ -1,43 +1,43 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        # print(ransomNote, magazine)
-        ransomHash = {}
-        magazineHash = {}
+        ransomDict = {}
+        magazineDict = {}
 
         for ransomLetter in ransomNote:
-            if ransomLetter in ransomHash:
-                ransomHash[ransomLetter] += 1
+            if ransomLetter in ransomDict:
+                ransomDict[ransomLetter] += 1
             else:
-                ransomHash[ransomLetter] = 1
+                ransomDict[ransomLetter] = 1
 
         for magazineLetter in magazine:
-            if magazineLetter in magazineHash:
-                magazineHash[magazineLetter] += 1
+            if magazineLetter in magazineDict:
+                magazineDict[magazineLetter] += 1
             else:
-                magazineHash[magazineLetter] = 1
+                magazineDict[magazineLetter] = 1
 
-        print(ransomHash)
-        print(magazineHash)
+        for letter in ransomDict:
+            if letter in magazineDict:
+                magazineDict[letter] = magazineDict[letter] - ransomDict[letter]
+            else:
+                return False
 
+        for letter in magazineDict:
+            if magazineDict[letter] < 0:
+                return False
 
-
-
-
-
-
+        return True
 
 # ransomNote = "a"
 # magazine = "b"
 # >>> false
 
-# ransomNote = "aa"
-# magazine = "ab"
+ransomNote = "aa"
+magazine = "ab"
 # >>> false
 
-ransomNote = "aa"
-magazine = "aab"
+# ransomNote = "aa"
+# magazine = "aab"
 # >>> true
 
-
 sol = Solution()
-sol.canConstruct(ransomNote, magazine)
+print(sol.canConstruct(ransomNote, magazine))
