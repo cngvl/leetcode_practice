@@ -13,6 +13,8 @@
         # Checking each ROW for duplicates
         # Checking each COLOUMN for duplicates
         # Checking each 3 x 3 BOX for duplicates
+            # Could've sorted out each of the 3 x 3 boxes as an individual value in itself
+            # E.g. Columns 0 - 2 and Row 0 - 2 could be ONE box (use of mod 3)
 
 
 class Solution:
