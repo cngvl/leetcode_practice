@@ -1,14 +1,15 @@
 class Solution:
     def arraySign(self, nums: list[int]) -> int:
-        # print(nums)
         startNum = 1
         for num in nums:
-            startNum * num
+
+            if num == 0:
+                return 0
+
+            startNum *= num
 
         if startNum > 0:
             return 1
-        elif startNum == 0:
-            return 0
         else:
             return -1
 
