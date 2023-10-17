@@ -14,9 +14,7 @@ class Solution:
 
         letterStack = []
         for char in s:
-            # print(char)
             if char == "*":
-                # print("*")
                 letterStack.pop()
             else:
                 letterStack.append(char)
