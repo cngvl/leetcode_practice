@@ -12,18 +12,17 @@ class Solution:
     def evalRPN(self, tokens: list[str]) -> int:
         numberStack = []
 
+        operationHash = {
+            "+": lambda x, y: x + y,
+            "-": lambda x, y: x - y,
+            "*": lambda x, y: x * y,
+            "/": lambda x, y: int(x / y),
+        }
+
         for item in tokens:
-            if item == "/":
-                numberStack[-2] = int(numberStack[-2] / numberStack[-1])
-                numberStack.pop()
-            elif item == "+":
-                numberStack[-2] = (numberStack[-2] + numberStack[-1])
-                numberStack.pop()
-            elif item == "-":
-                numberStack[-2] = (numberStack[-2] - numberStack[-1])
-                numberStack.pop()
-            elif item == "*":
-                numberStack[-2] = (numberStack[-2] * numberStack[-1])
+            if item == "/" or item == "+" or item == "-" or item == "*":
+                operationValue = operationHash[item](numberStack[-2], numberStack[-1])
+                numberStack[-2] = (operationHash[item](numberStack[-2], numberStack[-1]))
                 numberStack.pop()
             else:
                 numberStack.append(int(item))
@@ -33,13 +32,13 @@ class Solution:
 
 
 
-tokens = ["2","1","+","3","*"]
+# tokens = ["2","1","+","3","*"]
 # >>> 9
 
 # tokens = ["4","13","5","/","+"]
 # >>> 6
 
-# tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
+tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
 # >>> 22
 
 sol = Solution()
