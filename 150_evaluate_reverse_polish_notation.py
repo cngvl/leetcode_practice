@@ -5,8 +5,6 @@
 # Initial issue is that the items within the list are all strings and aren't operators or ints
     # Might make a hashmap for this?
 # After this step I should be able to do the logic of just taking the [-1] and [-2] indexed items from the stack and doing the math operations on them
-#
-
 
 class Solution:
     def evalRPN(self, tokens: list[str]) -> int:
@@ -21,7 +19,6 @@ class Solution:
 
         for item in tokens:
             if item == "/" or item == "+" or item == "-" or item == "*":
-                operationValue = operationHash[item](numberStack[-2], numberStack[-1])
                 numberStack[-2] = (operationHash[item](numberStack[-2], numberStack[-1]))
                 numberStack.pop()
             else:
