@@ -9,15 +9,12 @@
 class Solution:
     def dailyTemperatures(self, temperatures: list[int]) -> list[int]:
         answer = []
-        # print(temperatures)
 
         for position in range(0,len(temperatures)):
-            # print(position)
             currentTemp = temperatures[position]
             days_till_warmer = 0
 
             for downstreamPosition in range(position + 1, len(temperatures)):
-                # print(downstreamPosition)
                 ifCheck = temperatures[downstreamPosition] > currentTemp
                 if temperatures[downstreamPosition] > currentTemp:
                     days_till_warmer = downstreamPosition - position
