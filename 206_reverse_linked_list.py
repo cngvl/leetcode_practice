@@ -30,11 +30,35 @@ class LinkedList:
             elements.append(current.val)
         print(elements)
 
+# I have no clue how to solve this question
+    # Initially I was thinking of looping till you you hit None but then how do I replace that node with the FIRST node, and then keep looping to reverse ALL the nodes?
+        # Maybe do some counter and then stop at the midway point?
+            # Might not work without the use of a length function
+        # "Follow up: A linked list can be reversed either iteratively or recursively. Could you implement both?"
+        # I thought about the possibility of doing this recursively but I'm still not confident in recursive functions so I'll stick with iteratively for now
+
+    # ChatGPT response shows a different method:
+        # To traverse the input LinkedList while storing the values in an array
+        # Using the array, create a LinkedList with the values but in reverse order
+        # Return the newly created LinkedList
+
+# This is passed the HEAD node, NOT the whole LinkedList
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # Your code here
-        pass
+        LinkedListVals = []
+        current_node = head
+        while current_node:
+            LinkedListVals.append(current_node.val)
+            current_node = current_node.next
 
+        # print(current_node)
+        newHead = ListNode()
+        current = newHead
+        for nodeVal in reversed(LinkedListVals):
+            current.next = ListNode(nodeVal)
+            current = current.next
+
+        return newHead.next
 
 node = LinkedList()
 node.append(1)
@@ -42,14 +66,21 @@ node.append(2)
 node.append(3)
 node.append(4)
 node.append(5)
+print('Display BEFORE:')
 node.display()
 
+sol = Solution()
+sol.reverseList(node.head.next)
+print('Display AFTER:')
+node.display()
 
-# Input: head = [1,2,3,4,5]
-# Output: [5,4,3,2,1]
+# node.display()
 
-# Input: head = [1,2]
-# Output: [2,1]
+# head = [1,2,3,4,5]
+# >>> [5,4,3,2,1]
 
-# Input: head = []
-# Output: []
+# head = [1,2]
+# >>> [2,1]
+
+# head = []
+# >>> []
