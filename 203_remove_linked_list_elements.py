@@ -31,10 +31,42 @@ class LinkedList:
             elements.append(current.val)
         print(elements)
 
+# Thought about this question briefly before
+    # Need to consider if the node is in the LAST position and if the whole LinkedList is filled with nodes of the same target val
+    # I could just do the same method as q206
+        # Run through the input LinkedList and append the values into an array
+        # Create a new LinkedList with the values from the array
+    # Will attempt to change the LinkedList in place rather than create a new one
+        # Might just cheese it to start and then attempt the "better" method after
+
 class Solution:
     def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
-        pass
+        seenValues = []
+        currentNode = head
+        while currentNode:
+            if currentNode.val != val : seenValues.append(currentNode.val)
+            currentNode = currentNode.next
 
+        newHead = ListNode()
+        newCurrent = newHead
+        for value in seenValues:
+            newCurrent.next = ListNode(value)
+            newCurrent = newCurrent.next
+
+        return newHead.next
+
+ll = LinkedList()
+ll.append(1)
+ll.append(2)
+ll.append(6)
+ll.append(3)
+ll.append(4)
+ll.append(5)
+ll.append(6)
+ll.display()
+
+sol = Solution()
+sol.removeElements(ll.head.next, 6)
 
 # head = [1,2,6,3,4,5,6]
 # val = 6
