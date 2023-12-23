@@ -55,6 +55,14 @@ class Solution:
 
         return newHead.next
 
+    def removeElements2(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
+        currentNode = head
+        nextNode = currentNode.next
+        while nextNode:
+            if currentNode.val == val:
+                print('x')
+        return head
+
 ll = LinkedList()
 ll.append(1)
 ll.append(2)
@@ -66,7 +74,7 @@ ll.append(6)
 ll.display()
 
 sol = Solution()
-sol.removeElements(ll.head.next, 6)
+sol.removeElements2(ll.head.next, 6)
 
 # head = [1,2,6,3,4,5,6]
 # val = 6
