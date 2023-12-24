@@ -1,5 +1,4 @@
 # Constraints:
-
 # The number of nodes in the list is in the range [1, 100].
 # 1 <= Node.val <= 100
 
@@ -30,3 +29,42 @@ class LinkedList:
             current = current.next
             elements.append(current.val)
         print(elements)
+
+# I have no clue how to even attempt this
+    # Maybe I can do a double counter? Fast + slow
+        # If the Fast breaks then take the slow value¿¿
+    # Is the simple counter just too easy¿? // 2 - misunderstood the question
+        # Need to return all the nodes downstream of the middle
+
+
+class Solution:
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        slowNode = head
+        fastNode = slowNode
+
+        while fastNode and fastNode.next:
+            slowNode = slowNode.next
+            fastNode = fastNode.next.next
+
+        print(slowNode.val)
+
+
+        return head
+
+ll = LinkedList()
+ll.append(1)
+ll.append(2)
+ll.append(3)
+ll.append(4)
+ll.append(5)
+ll.append(6)
+ll.display()
+
+sol = Solution()
+sol.middleNode(ll.head.next)
+
+# head = [1,2,3,4,5]
+# >>> [3,4,5]
+
+# head = [1,2,3,4,5,6]
+# >>> [4,5,6]
