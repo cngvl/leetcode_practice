@@ -56,12 +56,24 @@ class Solution:
         return newHead.next
 
     def removeElements2(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
+        while head and head.val == val:
+            head = head.next
+
         currentNode = head
-        nextNode = currentNode.next
-        while nextNode:
-            if currentNode.val == val:
-                print('x')
-        return head
+
+        while currentNode and currentNode.next:
+
+            nextNode = currentNode.next # worried about this breaking when there's no next node
+            # ifCheck = nextNode.val == val
+            # currentNodeVal = currentNode.val
+            # nextNodeVal = nextNode.val
+
+            if nextNode.val == val:
+                currentNode.next = nextNode.next
+            else:
+                currentNode = currentNode.next
+
+        # return head
 
 ll = LinkedList()
 ll.append(1)
@@ -75,13 +87,17 @@ ll.display()
 
 sol = Solution()
 sol.removeElements2(ll.head.next, 6)
+ll.display()
 
 # head = [1,2,6,3,4,5,6]
 # val = 6
+
 # >>> [1,2,3,4,5]
 # head = []
 # val = 1
+
 # >>> []
 # head = [7,7,7,7]
 # val = 7
+
 # >>> []
