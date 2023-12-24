@@ -46,10 +46,7 @@ class Solution:
             slowNode = slowNode.next
             fastNode = fastNode.next.next
 
-        print(slowNode.val)
-
-
-        return head
+        return slowNode
 
 ll = LinkedList()
 ll.append(1)
