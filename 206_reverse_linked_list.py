@@ -60,6 +60,17 @@ class Solution:
 
         return newHead.next
 
+    # NeetCode Solution
+    def NeetCodereverseList(self, head: ListNode) -> ListNode:
+        prev, curr = None, head
+
+        while curr:
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+        return prev
+
 node = LinkedList()
 node.append(1)
 node.append(2)
@@ -70,7 +81,7 @@ print('Display BEFORE:')
 node.display()
 
 sol = Solution()
-sol.reverseList(node.head.next)
+sol.NeetCodereverseList(node.head.next)
 print('Display AFTER:')
 node.display()
 
