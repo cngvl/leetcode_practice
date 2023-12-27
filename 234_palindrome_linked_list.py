@@ -30,20 +30,57 @@ class LinkedList:
             elements.append(current.val)
         print(elements)
 
+
+# Once again, I have no clue how to solve this
+    # Doing the seen value array method seems so cheat
+
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
-        pass
+        seenValues = []
+        currentNode = head
+        while currentNode:
+            seenValues.append(currentNode.val)
+            currentNode = currentNode.next
+
+        return seenValues == seenValues[::-1]
+
+    # NeetCode solution
+    def isPalindrome2(self, head: ListNode) -> bool:
+        fast = head
+        slow = head
+
+        # find the middle (slow)
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+
+        # reverse second half
+        prev = None
+        while slow:
+            tmp = slow.next
+            slow.next = prev
+            prev = slow
+            slow = tmp
+
+        # check palindrome
+        left, right = head, prev
+        while right:
+            if left.val != right.val:
+                return False
+            left = left.next
+            right = right.next
+        return True
 
 
 LList = LinkedList()
 LList.append(1)
 LList.append(2)
-LList.append(2)
-LList.append(1)
+# LList.append(2)
+# LList.append(1)
 LList.display()
 
 sol = Solution()
-sol.isPalindrome()
+sol.isPalindrome(LList.head.next)
 
 
 # head = [1,2,2,1]
