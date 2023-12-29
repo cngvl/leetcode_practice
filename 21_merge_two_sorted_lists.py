@@ -33,7 +33,43 @@ class LinkedList:
 
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        pass
+        if list1 == None:
+            return list2
+
+        if list2 == None:
+            return list1
+
+        # Do I need to make a new node?
+        newHead = ListNode()
+        current = newHead
+
+        while list1.next and list2.next:
+            List1Val = list1.val
+            List2Val = list2.val
+            if list1.val > list2.val:
+                # newNode = ListNode(val= list1.val)
+                # current = newNode
+                current.next = list1
+                list1 = list1.next
+            else: # list1.val <= list2.val
+                # newNode = ListNode(val= list2.val)
+                # current = newNode
+                current.next = list2
+                list2 = list2.next
+
+            current = current.next
+
+        if list1.next == None:
+            while list1.next != None:
+                current.next = ListNode(val= list1.val)
+                list1 = list1.next
+
+        if list2.next == None:
+            while list2.next != None:
+                current.next = ListNode(val= list2.val)
+                list2 = list2.next
+
+        return newHead.next
 
 LList1 = LinkedList()
 LList1.append(1)
