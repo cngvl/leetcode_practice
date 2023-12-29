@@ -47,7 +47,6 @@ LList2.append(3)
 LList2.append(4)
 LList2.display()
 
-
 sol = Solution()
 sol.mergeTwoLists(LList1.head.next, LList2.head.next)
 
