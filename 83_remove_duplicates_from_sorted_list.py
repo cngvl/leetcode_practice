@@ -31,6 +31,12 @@ class LinkedList:
             elements.append(current.val)
         print(elements)
 
+# Thought about the question throughout the days I didn't actively work on it
+    # the issue currently being faced is how to deal with the final nodes
+    # can do a current and current.next loop?
+        # can't do next and nextnext?¿
+        # I need? access to three nodes at one time?
+
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
         pass
