@@ -27,6 +27,20 @@ class Solution:
 
         return True
 
+    def uniqueOccurrences2(self, arr: list[int]) -> bool:
+        countHash = {}
+        checkingCounter = []
+        for num in arr:
+            if num not in countHash:
+                countHash[num] = 1
+            else:
+                countHash[num] += 1
+
+        for key in countHash:
+            if countHash[key] not in checkingCounter:
+                checkingCounter.append(countHash[key])
+
+        return len(countHash) == len(checkingCounter)
 
 # arr = [1,2,2,1,1,3]
 # >>> true
