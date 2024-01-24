@@ -11,62 +11,23 @@
 
 class Solution:
     def makeEqual(self, words: list[str]) -> bool:
-        lengthTotal = 0
-        for word in words:
-            lengthTotal += len(word)
-
-        averageLength = lengthTotal // len(words) # What if I get an odd value?
-        # print(averageLength)
-
-        shortWord = ''
-        longWord = ''
+        totalLetterHash = {}
 
         for word in words:
-            if len(word) == averageLength - 1:
-                shortWord = word
-            elif len(word) == averageLength + 1:
-                longWord = word
+            for letter in word:
+                if letter in totalLetterHash:
+                    totalLetterHash[letter] += 1
+                else:
+                    totalLetterHash[letter] = 1
 
-        shortWordHash = {}
-        for letter in shortWord:
-            if letter not in shortWordHash:
-                shortWordHash[letter] = 1
-            else:
-                shortWordHash[letter] += 1
-
-        longWordHash = {}
-        for letter in longWord:
-            if letter not in longWordHash:
-                longWordHash[letter] = 1
-            else:
-                longWordHash[letter] += 1
-
-        # print(shortWord)
-        if len(shortWord) == len(longWord):
-            return False
-        # print(longWord)
-
-        # longWordHashDupe = longWordHash
-        # shortWordHashDupe = shortWordHash
-
+        for letter in totalLetterHash:
+            if totalLetterHash[letter] % len(words) != 0:
+                return False
 
         print('')
 
-        for letter in longWordHash:
-            # print(letter)
-            if letter not in shortWordHash:
-                shortWordHash[letter] = 1
-                longWordHash[letter] -= 1
-            elif longWordHash[letter] > shortWordHash[letter]:
-                shortWordHash[letter] += 1
-                longWordHash[letter] -= 1
+        return True
 
-        print('')
-
-        if longWordHash == shortWordHash:
-            return True
-        else:
-            return False
 
 
 
