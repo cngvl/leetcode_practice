@@ -10,18 +10,27 @@
 
 class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
-        pass
+        seenHash = {}
 
-nums = [2,7,11,15]
-target = 9
+        for pos in range(0, len(nums)):
+            if target - nums[pos] in seenHash:
+                # print([seenHash[target - nums[pos]], pos])
+                return [seenHash[target - nums[pos]], pos]
+            else:
+                seenHash[nums[pos]] = pos
+
+        # pass
+
+# nums = [2,7,11,15]
+# target = 9
 # >>> [0,1]
 
 # nums = [3,2,4]
 # target = 6
 # >>> [1,2]
 
-# nums = [3,3]
-# target = 6
+nums = [3,3]
+target = 6
 # >>> [0,1]
 
 sol = Solution()
