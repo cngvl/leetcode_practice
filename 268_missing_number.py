@@ -7,13 +7,18 @@
 
 class Solution:
     def missingNumber(self, nums: list[int]) -> int:
-        pass
+        for num in range(0,(len(nums)) + 1):
+            if num not in nums:
+                print(num)
 
 # nums = [3,0,1]
 # >>> 2
 
-# nums = [9,6,4,2,3,5,7,0,1]
+nums = [9,6,4,2,3,5,7,0,1]
 # >>> 8
 
 # nums = [0,1]
 # >>> 2
+
+sol = Solution()
+sol.missingNumber(nums)
