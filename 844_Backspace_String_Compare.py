@@ -1,3 +1,5 @@
+import itertools
+
 # Constraints:
     # 1 <= s.length, t.length <= 200
     # s and t only contain lowercase letters and '#' characters.
@@ -25,6 +27,21 @@ class Solution:
                 tStack.pop()
 
         return sStack == tStack
+
+
+    def backspaceCompare2(self, S, T):
+        def F(S):
+            skip = 0
+            for x in reversed(S):
+                if x == '#':
+                    skip += 1
+                elif skip:
+                    skip -= 1
+                else:
+                    yield x
+
+
+        return all(x == y for x, y in itertools.izip_longest(F(S), F(T)))
 
 # s = "ab#c"
 # t = "ad#c"
