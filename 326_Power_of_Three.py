@@ -5,12 +5,27 @@
 
 class Solution:
     def isPowerOfThree(self, n: int) -> bool:
-        pass
+        # pass
+        if n < 0:
+            return False
+
+        while n > 3:
+            n = n / 3
+
+        if n == 3 or n == 1:
+            print('True')
+            return True
+        else:
+            print('False')
+            return False
 
 n = 27
 # >>> true
 
 # n = 0
+# >>> false
+
+n = 28
 # >>> false
 
 # n = -1
