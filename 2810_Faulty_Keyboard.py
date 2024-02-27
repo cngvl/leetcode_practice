@@ -6,7 +6,15 @@
 
 class Solution:
     def finalString(self, s: str) -> str:
-        pass
+        returnString = ''
+
+        for letter in s:
+            if letter == 'i':
+                returnString = returnString[::-1]
+            else:
+                returnString += letter
+
+        print(returnString)
 
 s = "string"
 # >>> "rtsng"
