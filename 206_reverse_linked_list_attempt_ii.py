@@ -31,9 +31,28 @@ class LinkedList:
             elements.append(current.val)
         print(elements)
 
+# First attempt at this question I did a 'cheater' method
+    # I transversed through the input LList and stored the vals in an array
+    # Flipped and went through the array and made a new LList to return
+
+# Intended method was to transverse through the list and flip each of the direction of the next pointer?
+
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        pass
+        prev = None
+        curr = head
+        while curr:
+            print(curr.val)
+            # temp = curr
+            # nextNode = curr.next
+            # nextNode.next = temp
+            # curr = curr.next
+            nextNode = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nextNode
+
+        return prev
 
 node = LinkedList()
 node.append(1)
