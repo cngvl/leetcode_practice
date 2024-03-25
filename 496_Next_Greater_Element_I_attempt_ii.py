@@ -8,7 +8,8 @@
 
 class Solution:
     def nextGreaterElement(self, nums1: list[int], nums2: list[int]) -> list[int]:
-        pass
+        for num1Val, num1Index in enumerate(nums1):
+            print(f'{num1Index}: {num1Val}')
 
 sol = Solution()
 
@@ -17,7 +18,7 @@ nums2 = [1,3,4,2]
 # >>> [-1,3,-1]
 sol.nextGreaterElement(nums1, nums2)
 
-nums1 = [2,4]
-nums2 = [1,2,3,4]
-# >>> [3,-1]
-sol.nextGreaterElement(nums1, nums2)
+# nums1 = [2,4]
+# nums2 = [1,2,3,4]
+# # >>> [3,-1]
+# sol.nextGreaterElement(nums1, nums2)
