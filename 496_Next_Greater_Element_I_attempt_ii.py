@@ -8,8 +8,22 @@
 
 class Solution:
     def nextGreaterElement(self, nums1: list[int], nums2: list[int]) -> list[int]:
-        for num1Val, num1Index in enumerate(nums1):
-            print(f'{num1Index}: {num1Val}')
+        returnArray = []
+        for num1Val in nums1:
+            # print(f'{num1Index}: {num1Val}')
+            appendCheck = False
+            for num2Index, num2Val in enumerate(nums2):
+                ifCheck = (num2Val > num1Val and num2Index > nums2.index(num1Val)) and appendCheck == False
+                if ifCheck:
+                    # print(num2Val)
+                    returnArray.append(num2Val)
+                    appendCheck = True
+
+            if appendCheck == False:
+                # print('-1')
+                returnArray.append(-1)
+
+        print(returnArray)
 
 sol = Solution()
 
@@ -18,7 +32,7 @@ nums2 = [1,3,4,2]
 # >>> [-1,3,-1]
 sol.nextGreaterElement(nums1, nums2)
 
-# nums1 = [2,4]
-# nums2 = [1,2,3,4]
+nums1 = [2,4]
+nums2 = [1,2,3,4]
 # # >>> [3,-1]
-# sol.nextGreaterElement(nums1, nums2)
+sol.nextGreaterElement(nums1, nums2)
