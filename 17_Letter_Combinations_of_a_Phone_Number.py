@@ -24,7 +24,7 @@ class Solution:
                 res.append(curStr)
                 return
             for c in digToChar[digits[i]]:
-                backtrack(i + i, curStr + c)
+                backtrack(i + 1, curStr + c)
 
         if digits:
             backtrack(0, "")
