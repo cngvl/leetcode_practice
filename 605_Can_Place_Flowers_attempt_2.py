@@ -23,3 +23,8 @@ sol.canPlaceFlowers(flowerbed, n)
 # n = 1
 # sol.canPlaceFlowers(flowerbed, n)
 # >>> true
+
+# flowerbed = [0]
+# n = 1
+# sol.canPlaceFlowers(flowerbed, n)
+# >>> true
