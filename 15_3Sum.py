@@ -12,13 +12,23 @@
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         returnList = []
-        secondAndThirdHash = {}
         for firstNum in range(len(nums) - 2):
+            # print(f'First num: {nums[firstNum]}')
+            secondAndThirdHash = {}
+            smallReturnList = []
             # print(nums[firstNum])
             for secondNum in range(firstNum + 1,len(nums) - 1):
-                print(nums[secondNum])
+                if secondNum not in secondAndThirdHash:
+                    secondAndThirdHash[nums[secondNum]] = 1
+                if (0 - (nums[firstNum] + nums[secondNum])) in secondAndThirdHash:
+                    # print(nums[firstNum])
+                    # print(0 - (nums[firstNum] + nums[secondNum]))
+                    # print(nums[secondNum])
+                    smallReturnList = [nums[firstNum], (0 - (nums[firstNum] + nums[secondNum])), nums[secondNum]]
+                    print(smallReturnList)
 
-            print('x')
+
+            # print('x')
 
 
 sol = Solution()
