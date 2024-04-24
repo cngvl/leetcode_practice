@@ -8,18 +8,24 @@
         # iterate through the array once, and store each number into a HashMap, ( storing val and index )
         # For each iteration, check if the compliment of the CURRENT ITERATION's number has been seen before
 
+# Coming back to finish off the question
+    # Issue with first iteration of the solution
+    # Would use the most recently added num to create a solution ( same indexed val )
+    # e.g. 2 -1 and then the same -1
 
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         returnList = []
         for firstNum in range(len(nums) - 2):
             # print(f'First num: {nums[firstNum]}')
-            secondAndThirdHash = {}
             smallReturnList = []
             # print(nums[firstNum])
-            for secondNum in range(firstNum + 1,len(nums) - 1):
+            # print('start of secondNum loop')
+            secondAndThirdHash = {}
+            for secondNum in range(firstNum + 1,len(nums)):
+                # print(nums[secondNum])
                 if secondNum not in secondAndThirdHash:
-                    secondAndThirdHash[nums[secondNum]] = 1
+                    secondAndThirdHash[nums[secondNum]] = secondNum
                 if (0 - (nums[firstNum] + nums[secondNum])) in secondAndThirdHash:
                     # print(nums[firstNum])
                     # print(0 - (nums[firstNum] + nums[secondNum]))
@@ -28,7 +34,7 @@ class Solution:
                     print(smallReturnList)
 
 
-            # print('x')
+            # print('End of secondNum loop')
 
 
 sol = Solution()
