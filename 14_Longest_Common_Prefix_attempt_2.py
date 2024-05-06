@@ -25,15 +25,15 @@ class Solution:
             else:
                 returnString += smallStack[0]
 
-
+        print(returnString)
 
 sol = Solution()
-strs = ["flower","flow","flight"]
-sol.longestCommonPrefix(strs)
+# strs = ["flower","flow","flight"]
+# sol.longestCommonPrefix(strs)
 # >>> "fl"
 
-strs = ["dog","racecar","car"]
-sol.longestCommonPrefix(strs)
+# strs = ["dog","racecar","car"]
+# sol.longestCommonPrefix(strs)
 # >>> ""
 
 # Failed test case
@@ -44,3 +44,11 @@ sol.longestCommonPrefix(strs)
 strs = ["a"]
 sol.longestCommonPrefix(strs)
 # >>> "a"
+
+strs = ["a", "ab"]
+sol.longestCommonPrefix(strs)
+# >>> "a"
+
+strs = ["cir","car"]
+sol.longestCommonPrefix(strs)
+# >>> "c"
