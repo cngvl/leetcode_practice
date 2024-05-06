@@ -14,7 +14,6 @@ class Solution:
         for word in strs:
             minLength = min(minLength, len(word))
 
-        # print(minLength)
         for letterPos in range(minLength):
             smallStack = []
             for word in strs:
