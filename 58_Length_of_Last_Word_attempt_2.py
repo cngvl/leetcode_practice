@@ -28,27 +28,35 @@ class Solution(object):
 
         print(returnInt)
 
+    def lengthOfLastWordRecursion(self, s):
+        print('x')
+
 
 sol = Solution()
 # s = "Hello World"
 # sol.lengthOfLastWord(s)
+# sol.lengthOfLastWordRecursion(s)
 # >>> 5
 
 # s = "   fly me   to   the moon  "
 # sol.lengthOfLastWord(s)
+# sol.lengthOfLastWordRecursion(s)
 # >>> 4
 
 # s = "luffy is still joyboy"
 # sol.lengthOfLastWord(s)
+# sol.lengthOfLastWordRecursion(s)
 # >>> 6
 
 # Failed test case
 # Fails because it starts off as 0, and then ticks down to -1, so the position of the pointer doesn't really change
 # s = "a"
 # sol.lengthOfLastWord(s)
+# sol.lengthOfLastWordRecursion(s)
 # >>> 1
 
 # Same issue as above, it would loop to 0 and then -1, making it look at the same position twice
 s = "day"
-sol.lengthOfLastWord(s)
+# sol.lengthOfLastWord(s)
+sol.lengthOfLastWordRecursion(s)
 # >>> 3
