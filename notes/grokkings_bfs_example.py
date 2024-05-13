@@ -5,6 +5,7 @@ from collections import deque
 # search_queue += graph["you"]
 
 def person_is_seller(name):
+    # Example checking if the person is a seller
     return name[-1] == 'm'
 
 def search(name):
