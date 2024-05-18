@@ -14,6 +14,9 @@
 # Gets weird because there's also the no overtaking clause - can adjust the speed value?
 # Question is listed as a Monotonic stack question - rock smashin type shit
 
+# Might be a good idea to sort the position of the cars first and then somehow match them with their speeds?
+    # Probably some HashMap for this
+
 class Solution(object):
     def carFleet(self, target, position, speed):
         """
@@ -22,10 +25,23 @@ class Solution(object):
         :type speed: List[int]
         :rtype: int
         """
+        maxDistance = 0
+        matchedCars = {}
+
         for index in range(len(position)):
-            print(position)
-            # Needs to be a nested loop
-            position[index] += speed[index]
+            matchedCars[position[index]] = speed[index]
+
+        print(matchedCars)
+        position.sort()
+        position.reverse()
+
+        for index in range(len(position)):
+            # Can add a check to see if the previous/next val is than or equal to the curr val. If true, add spd ( but not too much to exceed the prev car )
+            position[index] += matchedCars[position[index]]
+            maxDistance = max(position[index], maxDistance)
+
+        print(maxDistance)
+        print(position)
 
 sol = Solution()
 target = 12
